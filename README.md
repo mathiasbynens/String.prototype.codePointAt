@@ -1,4 +1,4 @@
-# ES6 `String.prototype.codePointAt` polyfill
+# ES6 `String.prototype.codePointAt` polyfill [![Build status](https://travis-ci.org/mathiasbynens/String.prototype.codePointAt.png?branch=master)](https://travis-ci.org/mathiasbynens/String.prototype.codePointAt)
 
 A robust & optimized polyfill for [the `String.prototype.codePointAt` method in ECMAScript 6](http://people.mozilla.org/~jorendorff/es6-draft.html#sec-21.1.3.3).
 
