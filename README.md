@@ -5,7 +5,7 @@ A robust & optimized ES3-compatible polyfill for [the `String.prototype.codePoin
 Other polyfills for `String.prototype.codePointAt` are available:
 
 * <http://norbertlindenberg.com/2012/05/ecmascript-supplementary-characters/> by [Norbert Lindenberg](http://norbertlindenberg.com/) (fails 2 tests)
-* <https://gist.github.com/slevithan/2290602> by [Steven Levithan](http://stevenlevithan.com/) (fails 6 tests)
+* <https://gist.github.com/slevithan/2290602> by [Steven Levithan](http://stevenlevithan.com/) (fails 8 tests)
 
 ## Installation
 
