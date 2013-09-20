@@ -209,6 +209,8 @@ var tests = [
 	}
 ];
 
+assert.equal(String.prototype.codePointAt.length, 1);
+
 var errors = 0;
 tests.forEach(function(test, index) {
 	try {
