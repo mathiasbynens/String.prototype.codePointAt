@@ -1,3 +1,4 @@
+/*! http://mths.be/codepointat v0.1.0 by @mathias */
 if (!String.prototype.codePointAt) {
 	String.prototype.codePointAt = function(position) {
 		var string = String(this);
