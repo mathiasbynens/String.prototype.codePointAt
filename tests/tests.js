@@ -11,6 +11,11 @@ var tests = [
 	},
 	{
 		'string': 'abc\uD834\uDF06def',
+		'position': -0,
+		'result': 0x61
+	},
+	{
+		'string': 'abc\uD834\uDF06def',
 		'position': 0,
 		'result': 0x61
 	},
@@ -82,6 +87,11 @@ var tests = [
 	},
 	{
 		'string': '\uD834\uDF06def',
+		'position': -0,
+		'result': 0x1D306
+	},
+	{
+		'string': '\uD834\uDF06def',
 		'position': 0,
 		'result': 0x1D306
 	},
@@ -133,6 +143,11 @@ var tests = [
 	},
 	{
 		'string': '\uD834abc',
+		'position': -0,
+		'result': 0xD834
+	},
+	{
+		'string': '\uD834abc',
 		'position': 0,
 		'result': 0xD834
 	},
@@ -171,6 +186,11 @@ var tests = [
 		'string': '\uDF06abc',
 		'position': -1,
 		'result': undefined
+	},
+	{
+		'string': '\uDF06abc',
+		'position': -0,
+		'result': 0xDF06
 	},
 	{
 		'string': '\uDF06abc',
