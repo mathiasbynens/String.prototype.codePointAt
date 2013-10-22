@@ -1,254 +1,63 @@
 var assert = require('assert');
+var assertEquals = assert.equal;
 
 require('../codepointat.js');
 
-var tests = [
-	// String that starts with a BMP symbol
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': -1,
-		'result': undefined
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': -0,
-		'result': 0x61
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': 0,
-		'result': 0x61
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': null,
-		'result': 0x61
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': undefined,
-		'result': 0x61
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': false,
-		'result': 0x61
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': NaN,
-		'result': 0x61
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': '',
-		'result': 0x61
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': '_',
-		'result': 0x61
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': 3,
-		'result': 0x1D306
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': 4,
-		'result': 0xDF06
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': 5,
-		'result': 0x64
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': 42,
-		'result': undefined
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': Infinity,
-		'result': undefined
-	},
-	{
-		'string': 'abc\uD834\uDF06def',
-		'position': -Infinity,
-		'result': undefined
-	},
-	// String that starts with an astral symbol
-	{
-		'string': '\uD834\uDF06def',
-		'position': -1,
-		'result': undefined
-	},
-	{
-		'string': '\uD834\uDF06def',
-		'position': -0,
-		'result': 0x1D306
-	},
-	{
-		'string': '\uD834\uDF06def',
-		'position': 0,
-		'result': 0x1D306
-	},
-	{
-		'string': '\uD834\uDF06def',
-		'position': null,
-		'result': 0x1D306
-	},
-	{
-		'string': '\uD834\uDF06def',
-		'position': undefined,
-		'result': 0x1D306
-	},
-	{
-		'string': '\uD834\uDF06def',
-		'position': false,
-		'result': 0x1D306
-	},
-	{
-		'string': '\uD834\uDF06def',
-		'position': '',
-		'result': 0x1D306
-	},
-	{
-		'string': '\uD834\uDF06def',
-		'position': '_',
-		'result': 0x1D306
-	},
-	{
-		'string': '\uD834\uDF06def',
-		'position': 42,
-		'result': undefined
-	},
-	{
-		'string': '\uD834\uDF06def',
-		'position': 1,
-		'result': 0xDF06
-	},
-	{
-		'string': '\uD834\uDF06def',
-		'position': '1',
-		'result': 0xDF06
-	},
-	// Lone high surrogates
-	{
-		'string': '\uD834abc',
-		'position': -1,
-		'result': undefined
-	},
-	{
-		'string': '\uD834abc',
-		'position': -0,
-		'result': 0xD834
-	},
-	{
-		'string': '\uD834abc',
-		'position': 0,
-		'result': 0xD834
-	},
-	{
-		'string': '\uD834abc',
-		'position': null,
-		'result': 0xD834
-	},
-	{
-		'string': '\uD834abc',
-		'position': undefined,
-		'result': 0xD834
-	},
-	{
-		'string': '\uD834abc',
-		'position': false,
-		'result': 0xD834
-	},
-	{
-		'string': '\uD834abc',
-		'position': NaN,
-		'result': 0xD834
-	},
-	{
-		'string': '\uD834abc',
-		'position': '',
-		'result': 0xD834
-	},
-	{
-		'string': '\uD834abc',
-		'position': '_',
-		'result': 0xD834
-	},
-	// Lone low surrogates
-	{
-		'string': '\uDF06abc',
-		'position': -1,
-		'result': undefined
-	},
-	{
-		'string': '\uDF06abc',
-		'position': -0,
-		'result': 0xDF06
-	},
-	{
-		'string': '\uDF06abc',
-		'position': 0,
-		'result': 0xDF06
-	},
-	{
-		'string': '\uDF06abc',
-		'position': null,
-		'result': 0xDF06
-	},
-	{
-		'string': '\uDF06abc',
-		'position': undefined,
-		'result': 0xDF06
-	},
-	{
-		'string': '\uDF06abc',
-		'position': false,
-		'result': 0xDF06
-	},
-	{
-		'string': '\uDF06abc',
-		'position': NaN,
-		'result': 0xDF06
-	},
-	{
-		'string': '\uDF06abc',
-		'position': '',
-		'result': 0xDF06
-	},
-	{
-		'string': '\uDF06abc',
-		'position': '_',
-		'result': 0xDF06
-	}
-];
+assertEquals(String.prototype.codePointAt.length, 1);
 
-assert.equal(String.prototype.codePointAt.length, 1);
+// String that starts with a BMP symbol
+assertEquals('abc\uD834\uDF06def'.codePointAt(''), 0x61);
+assertEquals('abc\uD834\uDF06def'.codePointAt('_'), 0x61);
+assertEquals('abc\uD834\uDF06def'.codePointAt(), 0x61);
+assertEquals('abc\uD834\uDF06def'.codePointAt(-Infinity), undefined);
+assertEquals('abc\uD834\uDF06def'.codePointAt(-1), undefined);
+assertEquals('abc\uD834\uDF06def'.codePointAt(-0), 0x61);
+assertEquals('abc\uD834\uDF06def'.codePointAt(0), 0x61);
+assertEquals('abc\uD834\uDF06def'.codePointAt(3), 0x1D306);
+assertEquals('abc\uD834\uDF06def'.codePointAt(4), 0xDF06);
+assertEquals('abc\uD834\uDF06def'.codePointAt(5), 0x64);
+assertEquals('abc\uD834\uDF06def'.codePointAt(42), undefined);
+assertEquals('abc\uD834\uDF06def'.codePointAt(Infinity), undefined);
+assertEquals('abc\uD834\uDF06def'.codePointAt(Infinity), undefined);
+assertEquals('abc\uD834\uDF06def'.codePointAt(NaN), 0x61);
+assertEquals('abc\uD834\uDF06def'.codePointAt(false), 0x61);
+assertEquals('abc\uD834\uDF06def'.codePointAt(null), 0x61);
+assertEquals('abc\uD834\uDF06def'.codePointAt(undefined), 0x61);
 
-var errors = 0;
-tests.forEach(function(test, index) {
-	try {
-		assert.equal(
-			test.string.codePointAt(test.position),
-			test.result,
-			index
-		);
-	} catch(error) {
-		errors++;
-		console.log(error.stack);
-	}
-});
+// String that starts with an astral symbol
+assertEquals('\uD834\uDF06def'.codePointAt(''), 0x1D306);
+assertEquals('\uD834\uDF06def'.codePointAt('1'), 0xDF06);
+assertEquals('\uD834\uDF06def'.codePointAt('_'), 0x1D306);
+assertEquals('\uD834\uDF06def'.codePointAt(), 0x1D306);
+assertEquals('\uD834\uDF06def'.codePointAt(-1), undefined);
+assertEquals('\uD834\uDF06def'.codePointAt(-0), 0x1D306);
+assertEquals('\uD834\uDF06def'.codePointAt(0), 0x1D306);
+assertEquals('\uD834\uDF06def'.codePointAt(1), 0xDF06);
+assertEquals('\uD834\uDF06def'.codePointAt(42), undefined);
+assertEquals('\uD834\uDF06def'.codePointAt(false), 0x1D306);
+assertEquals('\uD834\uDF06def'.codePointAt(null), 0x1D306);
+assertEquals('\uD834\uDF06def'.codePointAt(undefined), 0x1D306);
 
-console.log(
-	'Ran %d tests.\n%d assertions failed.\n%d assertions passed.',
-	tests.length, errors, tests.length - errors
-);
-if (errors) {
-	process.exit(1);
-}
+// Lone high surrogates
+assertEquals('\uD834abc'.codePointAt(''), 0xD834);
+assertEquals('\uD834abc'.codePointAt('_'), 0xD834);
+assertEquals('\uD834abc'.codePointAt(), 0xD834);
+assertEquals('\uD834abc'.codePointAt(-1), undefined);
+assertEquals('\uD834abc'.codePointAt(-0), 0xD834);
+assertEquals('\uD834abc'.codePointAt(0), 0xD834);
+assertEquals('\uD834abc'.codePointAt(false), 0xD834);
+assertEquals('\uD834abc'.codePointAt(NaN), 0xD834);
+assertEquals('\uD834abc'.codePointAt(null), 0xD834);
+assertEquals('\uD834abc'.codePointAt(undefined), 0xD834);
+
+// Lone low surrogates
+assertEquals('\uDF06abc'.codePointAt(''), 0xDF06);
+assertEquals('\uDF06abc'.codePointAt('_'), 0xDF06);
+assertEquals('\uDF06abc'.codePointAt(), 0xDF06);
+assertEquals('\uDF06abc'.codePointAt(-1), undefined);
+assertEquals('\uDF06abc'.codePointAt(-0), 0xDF06);
+assertEquals('\uDF06abc'.codePointAt(0), 0xDF06);
+assertEquals('\uDF06abc'.codePointAt(false), 0xDF06);
+assertEquals('\uDF06abc'.codePointAt(NaN), 0xDF06);
+assertEquals('\uDF06abc'.codePointAt(null), 0xDF06);
+assertEquals('\uDF06abc'.codePointAt(undefined), 0xDF06);
