@@ -1,6 +1,10 @@
 /*! http://mths.be/codepointat v0.1.0 by @mathias */
 if (!String.prototype.codePointAt) {
 	String.prototype.codePointAt = function(position) {
+		'use strict';
+		if (this == null) {
+			throw TypeError();
+		}
 		var string = String(this);
 		var size = string.length;
 		// `ToInteger`

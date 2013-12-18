@@ -1,5 +1,6 @@
 var assert = require('assert');
 var assertEquals = assert.equal;
+var assertThrows = assert['throws'];
 
 require('../codepointat.js');
 
@@ -61,3 +62,19 @@ assertEquals('\uDF06abc'.codePointAt(false), 0xDF06);
 assertEquals('\uDF06abc'.codePointAt(NaN), 0xDF06);
 assertEquals('\uDF06abc'.codePointAt(null), 0xDF06);
 assertEquals('\uDF06abc'.codePointAt(undefined), 0xDF06);
+
+assertThrows(function() { String.prototype.codePointAt.call(undefined); }, TypeError);
+assertThrows(function() { String.prototype.codePointAt.call(undefined, 4); }, TypeError);
+assertThrows(function() { String.prototype.codePointAt.call(null); }, TypeError);
+assertThrows(function() { String.prototype.codePointAt.call(null, 4); }, TypeError);
+assertEquals(String.prototype.codePointAt.call(42, 0), 0x34);
+assertEquals(String.prototype.codePointAt.call(42, 1), 0x32);
+assertEquals(String.prototype.codePointAt.call({ 'toString': function() { return 'abc'; } }, 2), 0x63);
+
+assertThrows(function() { String.prototype.codePointAt.apply(undefined); }, TypeError);
+assertThrows(function() { String.prototype.codePointAt.apply(undefined, [4]); }, TypeError);
+assertThrows(function() { String.prototype.codePointAt.apply(null); }, TypeError);
+assertThrows(function() { String.prototype.codePointAt.apply(null, [4]); }, TypeError);
+assertEquals(String.prototype.codePointAt.apply(42, [0]), 0x34);
+assertEquals(String.prototype.codePointAt.apply(42, [1]), 0x32);
+assertEquals(String.prototype.codePointAt.apply({ 'toString': function() { return 'abc'; } }, [2]), 0x63);
