@@ -4,9 +4,9 @@ A robust & optimized ES3-compatible polyfill for [the `String.prototype.codePoin
 
 Other polyfills for `String.prototype.codePointAt` are available:
 
-* <http://norbertlindenberg.com/2012/05/ecmascript-supplementary-characters/#String> by [Norbert Lindenberg](http://norbertlindenberg.com/) (fails 2 tests)
-* <https://gist.github.com/slevithan/2290602> by [Steven Levithan](http://stevenlevithan.com/) (fails 8 tests)
-* <https://github.com/paulmillr/es6-shim/blob/771e98e789292706d2435e4e10ffbe45edf40da6/es6-shim.js#L166-L177> by [Paul Miller](http://paulmillr.com/) (passes all tests)
+* <http://norbertlindenberg.com/2012/05/ecmascript-supplementary-characters/#String> by [Norbert Lindenberg](http://norbertlindenberg.com/) (fails some tests)
+* <https://gist.github.com/slevithan/2290602> by [Steven Levithan](http://stevenlevithan.com/) (fails some tests)
+* <https://github.com/paulmillr/es6-shim/blob/8e570a4b425a80f9b13ff027dbd28d65f201a319/es6-shim.js#L171-L183> by [Paul Miller](http://paulmillr.com/) (~~[fails some tests](https://github.com/paulmillr/es6-shim/issues/166)~~ passes all tests)
 
 ## Installation
 
