@@ -9,7 +9,7 @@ if (!String.prototype.codePointAt) {
 		var size = string.length;
 		// `ToInteger`
 		var index = position ? Number(position) : 0;
-		if (isNaN(index)) {
+		if (index != index) { // better `isNaN`
 			index = 0;
 		}
 		// Account for out-of-bounds indices:
