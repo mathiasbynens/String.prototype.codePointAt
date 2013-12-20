@@ -5,6 +5,7 @@ var assertThrows = assert['throws'];
 require('../codepointat.js');
 
 assertEquals(String.prototype.codePointAt.length, 1);
+assertEquals(String.prototype.propertyIsEnumerable('codePointAt'), false);
 
 // String that starts with a BMP symbol
 assertEquals('abc\uD834\uDF06def'.codePointAt(''), 0x61);
