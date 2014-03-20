@@ -1,4 +1,4 @@
-# ES6 `String.prototype.codePointAt` polyfill [![Build status](https://travis-ci.org/mathiasbynens/String.prototype.codePointAt.png?branch=master)](https://travis-ci.org/mathiasbynens/String.prototype.codePointAt)
+# ES6 `String.prototype.codePointAt` polyfill [![Build status](https://travis-ci.org/mathiasbynens/String.prototype.codePointAt.svg?branch=master)](https://travis-ci.org/mathiasbynens/String.prototype.codePointAt)
 
 A robust & optimized ES3-compatible polyfill for [the `String.prototype.codePointAt` method in ECMAScript 6](http://people.mozilla.org/~jorendorff/es6-draft.html#sec-string.prototype.codepointat).
 
@@ -38,7 +38,7 @@ require('String.prototype.codePointAt');
 
 ## Author
 
-| [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](http://twitter.com/mathias "Follow @mathias on Twitter") |
+| [![twitter/mathias](https://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](https://twitter.com/mathias "Follow @mathias on Twitter") |
 |---|
 | [Mathias Bynens](http://mathiasbynens.be/) |
 
