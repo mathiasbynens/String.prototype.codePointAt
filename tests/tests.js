@@ -71,6 +71,9 @@ assertThrows(function() { String.prototype.codePointAt.call(null, 4); }, TypeErr
 assertEquals(String.prototype.codePointAt.call(42, 0), 0x34);
 assertEquals(String.prototype.codePointAt.call(42, 1), 0x32);
 assertEquals(String.prototype.codePointAt.call({ 'toString': function() { return 'abc'; } }, 2), 0x63);
+var tmp = 0;
+assertEquals(String.prototype.codePointAt.call({ 'toString': function() { ++tmp; return String(tmp); } }, 0), 0x31);
+assertEquals(tmp, 1);
 
 assertThrows(function() { String.prototype.codePointAt.apply(undefined); }, TypeError);
 assertThrows(function() { String.prototype.codePointAt.apply(undefined, [4]); }, TypeError);
@@ -79,3 +82,6 @@ assertThrows(function() { String.prototype.codePointAt.apply(null, [4]); }, Type
 assertEquals(String.prototype.codePointAt.apply(42, [0]), 0x34);
 assertEquals(String.prototype.codePointAt.apply(42, [1]), 0x32);
 assertEquals(String.prototype.codePointAt.apply({ 'toString': function() { return 'abc'; } }, [2]), 0x63);
+tmp = 0;
+assertEquals(String.prototype.codePointAt.apply({ 'toString': function() { ++tmp; return String(tmp); } }, [0]), 0x31);
+assertEquals(tmp, 1);
