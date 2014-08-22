@@ -3,3 +3,5 @@ node_js:
   - "0.10"
 script:
   "node tests/tests.js"
+git:
+  depth: 10
