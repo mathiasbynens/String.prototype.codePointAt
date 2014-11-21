@@ -34,14 +34,14 @@ require('String.prototype.codePointAt');
 
 ## Notes
 
-[A polyfill + test suite for `String.fromCodePoint`](http://mths.be/fromcodepoint) is available, too.
+[A polyfill + test suite for `String.fromCodePoint`](https://mths.be/fromcodepoint) is available, too.
 
 ## Author
 
 | [![twitter/mathias](https://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](https://twitter.com/mathias "Follow @mathias on Twitter") |
 |---|
-| [Mathias Bynens](http://mathiasbynens.be/) |
+| [Mathias Bynens](https://mathiasbynens.be/) |
 
 ## License
 
-This polyfill is available under the [MIT](http://mths.be/mit) license.
+This polyfill is available under the [MIT](https://mths.be/mit) license.
