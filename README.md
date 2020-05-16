@@ -1,6 +1,8 @@
 # ES6 `String.prototype.codePointAt` polyfill [![Build status](https://travis-ci.org/mathiasbynens/String.prototype.codePointAt.svg?branch=master)](https://travis-ci.org/mathiasbynens/String.prototype.codePointAt)
 
-A robust & optimized ES3-compatible polyfill for [the `String.prototype.codePointAt` method in ECMAScript 6](http://people.mozilla.org/~jorendorff/es6-draft.html#sec-string.prototype.codepointat).
+A robust & optimized polyfill for [the `String.prototype.codePointAt` method in ECMAScript 6](http://people.mozilla.org/~jorendorff/es6-draft.html#sec-string.prototype.codepointat).
+
+This package implements the [es-shim API](https://github.com/es-shims/api) interface. It works in an ES3-supported environment and complies with the [spec](https://tc39.es/ecma262/#sec-string.prototype.codepointat).
 
 Other polyfills for `String.prototype.codePointAt` are available:
 
@@ -9,12 +11,6 @@ Other polyfills for `String.prototype.codePointAt` are available:
 * <https://github.com/paulmillr/es6-shim/blob/8e570a4b425a80f9b13ff027dbd28d65f201a319/es6-shim.js#L171-L183> by [Paul Miller](http://paulmillr.com/) (~~[fails some tests](https://github.com/paulmillr/es6-shim/issues/166)~~ passes all tests)
 
 ## Installation
-
-In a browser:
-
-```html
-<script src="codepointat.js"></script>
-```
 
 Via [npm](http://npmjs.org/):
 
@@ -31,6 +27,16 @@ require('string.prototype.codepointat');
 // which allows you to do this instead:
 require('String.prototype.codePointAt');
 ```
+
+In a browser:
+
+```html
+<script src="https://bundle.run/string.prototype.codepointat"></script>
+```
+
+> **NOTE**: It's recommended that you install this module using a package manager
+> such as `npm`, because loading multiple polyfills from a CDN (such as `bundle.run`)
+> will lead to duplicated code.
 
 ## Notes
 
