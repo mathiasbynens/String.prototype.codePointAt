@@ -9,7 +9,7 @@ var implementation = require('./implementation');
 var getPolyfill = require('./polyfill');
 var shim = require('./shim');
 
-var boundCodePointAt = callBind(implementation);
+var boundCodePointAt = callBind(getPolyfill());
 
 define(boundCodePointAt, {
 	getPolyfill: getPolyfill,
