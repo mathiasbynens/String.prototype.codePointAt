@@ -1,6 +1,6 @@
 {
 	"name": "string.prototype.codepointat",
-	"version": "0.2.1",
+	"version": "1.0.0",
 	"description": "A robust & optimized `String.prototype.codePointAt` polyfill, based on the ECMAScript 6 specification.",
 	"homepage": "https://mths.be/codepointat",
 	"main": "index.js",
