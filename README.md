@@ -1,4 +1,4 @@
-# ES6 `String.prototype.codePointAt` polyfill [![Build status](https://travis-ci.org/mathiasbynens/String.prototype.codePointAt.svg?branch=master)](https://travis-ci.org/mathiasbynens/String.prototype.codePointAt)
+# ES6 `String.prototype.codePointAt` polyfill  [![string.prototype.codepointat on npm](https://img.shields.io/npm/v/string.prototype.codepointat)](https://www.npmjs.com/package/string.prototype.codepointat)
 
 A robust & optimized polyfill for [the `String.prototype.codePointAt` method in ECMAScript 6](http://people.mozilla.org/~jorendorff/es6-draft.html#sec-string.prototype.codepointat).
 
@@ -41,6 +41,28 @@ In a browser:
 ## Notes
 
 [A polyfill + test suite for `String.fromCodePoint`](https://mths.be/fromcodepoint) is available, too.
+
+## For maintainers
+
+### How to publish a new release
+
+1. On the `main` branch, bump the version number in `package.json`:
+
+    ```sh
+    npm version patch -m 'Release v%s'
+    ```
+
+    Instead of `patch`, use `minor` or `major` [as needed](https://semver.org/).
+
+    Note that this produces a Git commit + tag.
+
+1. Push the release commit and tag:
+
+    ```sh
+    git push && git push --tags
+    ```
+
+    Our CI then automatically publishes the new release to npm.
 
 ## Author
 
