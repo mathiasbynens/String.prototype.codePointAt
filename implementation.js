@@ -2,17 +2,17 @@
 
 'use strict';
 
-var callBound = require('es-abstract/helpers/callBound');
-var RequireObjectCoercible = require('es-abstract/2019/RequireObjectCoercible');
-var ToString = require('es-abstract/2019/ToString');
-var ToInteger = require('es-abstract/2019/ToInteger');
+var callBound = require('call-bind/callBound');
+var RequireObjectCoercible = require('es-abstract/2024/RequireObjectCoercible');
+var ToString = require('es-abstract/2024/ToString');
+var ToIntegerOrInfinity = require('es-abstract/2024/ToIntegerOrInfinity');
 var StringCharCodeAt = callBound('String.prototype.charCodeAt');
 
 module.exports = function codePointAt(position) {
 	var O = RequireObjectCoercible(this);
 	var string = ToString(O);
 	var size = string.length;
-	var index = ToInteger(position);
+	var index = ToIntegerOrInfinity(position);
 	// Account for out-of-bounds indices:
 	if (index < 0 || index >= size) {
 		return undefined;

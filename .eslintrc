@@ -9,7 +9,7 @@
 			"capIsNewExceptions": [
 				"StringCharCodeAt",
 				"RequireObjectCoercible",
-				"ToInteger",
+				"ToIntegerOrInfinity",
 				"ToString",
 			],
 		}],

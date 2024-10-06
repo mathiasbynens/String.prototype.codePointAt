@@ -39,12 +39,12 @@
 		"cover": "istanbul cover --report html --verbose --dir coverage tape 'tests/*.js'"
 	},
 	"dependencies": {
-		"es-abstract": "^1.17.5"
+		"call-bind": "^1.0.7",
+		"es-abstract": "^1.23.3"
 	},
 	"devDependencies": {
 		"@es-shims/api": "^2.5.1",
 		"@ljharb/eslint-config": "^21.1.1",
-		"call-bind": "^1.0.7",
 		"define-properties": "^1.2.1",
 		"eslint": "=8.8.0",
 		"function-bind": "^1.1.2",
