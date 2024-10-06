@@ -1,0 +1,28 @@
+{
+	"root": true,
+
+	"extends": "@ljharb",
+
+	"rules": {
+		"id-length": "off",
+		"new-cap": ["error", {
+			"capIsNewExceptions": [
+				"StringCharCodeAt",
+				"RequireObjectCoercible",
+				"ToInteger",
+				"ToString",
+			],
+		}],
+		"no-magic-numbers": "off",
+	},
+
+	"overrides": [
+		{
+			"files": ["tests/**/*"],
+			"rules": {
+				"max-lines-per-function": "off",
+				"max-statements-per-line": "off",
+			},
+		},
+	]
+}
