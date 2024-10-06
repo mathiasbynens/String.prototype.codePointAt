@@ -1,5 +1,7 @@
 'use strict';
 
+var supportsStrictMode = require('has-strict-mode')();
+
 module.exports = function (codePointAt, t) {	
 	t.test('String that starts with a BMP symbol', function (st) {
 		st.equal(codePointAt('abc\uD834\uDF06def', -1), undefined);
@@ -81,8 +83,6 @@ module.exports = function (codePointAt, t) {
 		st.equal(codePointAt('\uDF06abc', undefined), 0xDF06);
 		st.end();
 	});
-
-	var supportsStrictMode = (function () { return typeof this === 'undefined'; }());
 
 	t.test('bad string/this value', { skip: !supportsStrictMode }, function (st) {
 		st['throws'](function () { return codePointAt(undefined, 'a'); }, TypeError, 'undefined is not an object');
