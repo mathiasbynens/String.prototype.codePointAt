@@ -51,5 +51,8 @@
 		"has-strict-mode": "^1.0.1",
 		"istanbul": "^0.4.5",
 		"tape": "^5.9.0"
+	},
+	"directories": {
+		"test": "tests"
 	}
 }
