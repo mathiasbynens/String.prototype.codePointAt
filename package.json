@@ -54,5 +54,8 @@
 	},
 	"directories": {
 		"test": "tests"
+	},
+	"engines": {
+		"node": ">= 0.4"
 	}
 }
