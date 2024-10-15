@@ -5,7 +5,7 @@ codePointAt.shim();
 
 var test = require('tape');
 var defineProperties = require('define-properties');
-var bind = require('function-bind');
+var callBind = require('call-bind');
 var isEnumerable = Object.prototype.propertyIsEnumerable;
 var functionsHaveNames = require('functions-have-names')();
 
@@ -24,7 +24,7 @@ test('shimmed', function (t) {
 		et.end();
 	});
 
-	runTests(bind.call(Function.call, String.prototype.codePointAt), t);
+	runTests(callBind(String.prototype.codePointAt), t);
 
 	t.end();
 });

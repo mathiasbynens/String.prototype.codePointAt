@@ -1,6 +1,8 @@
 'use strict';
 
-module.exports = function (codePointAt, t) {	
+var supportsStrictMode = require('has-strict-mode')();
+
+module.exports = function (codePointAt, t) {
 	t.test('String that starts with a BMP symbol', function (st) {
 		st.equal(codePointAt('abc\uD834\uDF06def', -1), undefined);
 		st.equal(codePointAt('abc\uD834\uDF06def', -0), 0x61);
@@ -82,21 +84,19 @@ module.exports = function (codePointAt, t) {
 		st.end();
 	});
 
-	var supportsStrictMode = (function () { return typeof this === 'undefined'; }());
-
 	t.test('bad string/this value', { skip: !supportsStrictMode }, function (st) {
 		st['throws'](function () { return codePointAt(undefined, 'a'); }, TypeError, 'undefined is not an object');
 		st['throws'](function () { return codePointAt(null, 'a'); }, TypeError, 'null is not an object');
 		st.end();
 	});
-	
+
 	t.test('cast this value', function (st) {
 		st.equal(codePointAt(42, 0), 0x34);
 		st.equal(codePointAt(42, 1), 0x32);
-		st.equal(codePointAt({ 'toString': function() { return 'abc'; } }, 2), 0x63);
+		st.equal(codePointAt({ toString: function () { return 'abc'; } }, 2), 0x63);
 
 		var tmp = 0;
-		st.equal(codePointAt({ 'toString': function() { ++tmp; return String(tmp); } }, 0), 0x31);
+		st.equal(codePointAt({ toString: function () { tmp += 1; return String(tmp); } }, 0), 0x31);
 		st.equal(tmp, 1);
 
 		st.end();
