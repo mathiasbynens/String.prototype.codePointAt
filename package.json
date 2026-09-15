@@ -46,10 +46,8 @@
 		"@ljharb/eslint-config": "^21.1.1",
 		"define-properties": "^1.2.1",
 		"eslint": "=8.8.0",
-		"function-bind": "^1.1.2",
 		"functions-have-names": "^1.2.3",
 		"has-strict-mode": "^1.0.1",
-		"istanbul": "^0.4.5",
 		"tape": "^5.9.0"
 	},
 	"directories": {
