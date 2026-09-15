@@ -3,9 +3,9 @@
 'use strict';
 
 var callBound = require('call-bind/callBound');
-var RequireObjectCoercible = require('es-abstract/2024/RequireObjectCoercible');
-var ToString = require('es-abstract/2024/ToString');
-var ToIntegerOrInfinity = require('es-abstract/2024/ToIntegerOrInfinity');
+var RequireObjectCoercible = require('es-abstract/2025/RequireObjectCoercible');
+var ToString = require('es-abstract/2025/ToString');
+var ToIntegerOrInfinity = require('es-abstract/2025/ToIntegerOrInfinity');
 var StringCharCodeAt = callBound('String.prototype.charCodeAt');
 
 module.exports = function codePointAt(position) {
