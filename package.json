@@ -38,13 +38,14 @@
 		"posttest": "npx npm@'>=10.2' audit --production"
 	},
 	"dependencies": {
-		"call-bind": "^1.0.9",
+		"call-bound": "^1.0.4",
 		"define-properties": "^1.2.1",
 		"es-abstract": "^1.24.2"
 	},
 	"devDependencies": {
 		"@es-shims/api": "^2.5.1",
 		"@ljharb/eslint-config": "^22.2.4",
+		"call-bind": "^1.0.9",
 		"eslint": "^8.57.1",
 		"functions-have-names": "^1.2.3",
 		"has-strict-mode": "^1.1.0",

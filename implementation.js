@@ -2,7 +2,7 @@
 
 'use strict';
 
-var callBound = require('call-bind/callBound');
+var callBound = require('call-bound');
 var RequireObjectCoercible = require('es-abstract/2025/RequireObjectCoercible');
 var ToString = require('es-abstract/2025/ToString');
 var ToIntegerOrInfinity = require('es-abstract/2025/ToIntegerOrInfinity');
